@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    {% if is_searched %}
+      <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img src="https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/inside-crypto-cryptocurrency.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="900" height="700" loading="lazy">
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">You Searched for: {{ query }}</h1>
+            <p class="lead">
+              Price: R {{ searched.search_price }} <br>
+              Market Cap: R{{ searched.search_cap }} <br>
+              24 Hour Movement: {{ searched.search_24h }}%
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Whats going on?</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+          <div class="col d-flex align-items-start">
+            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-crosshair2" viewBox="0 0 16 16">
+                <path d="M8 0a.5.5 0 0 1 .5.5v.518A7 7 0 0 1 14.982 7.5h.518a.5.5 0 0 1 0 1h-.518A7 7 0 0 1 8.5 14.982v.518a.5.5 0 0 1-1 0v-.518A7 7 0 0 1 1.018 8.5H.5a.5.5 0 0 1 0-1h.518A7 7 0 0 1 7.5 1.018V.5A.5.5 0 0 1 8 0m-.5 2.02A6 6 0 0 0 2.02 7.5h1.005A5 5 0 0 1 7.5 3.025zm1 1.005A5 5 0 0 1 12.975 7.5h1.005A6 6 0 0 0 8.5 2.02zM12.975 8.5A5 5 0 0 1 8.5 12.975v1.005a6 6 0 0 0 5.48-5.48zM7.5 12.975A5 5 0 0 1 3.025 8.5H2.02a6 6 0 0 0 5.48 5.48zM10 8a2 2 0 1 0-4 0 2 2 0 0 0 4 0"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="fs-2 text-body-emphasis">Track Specific Currencies</h3>
+              <p>If you are interested in specific crypto currencies and their dialy movement, you can serach them here to get all the important information.</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-percent" viewBox="0 0 16 16">
+                <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0M4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5m7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="fs-2 text-body-emphasis">See how much they change daily</h3>
+              <p>Crypto currencies are extremely volatile, it never hurts to know exactly what they are doing from day to day.</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="fs-2 text-body-emphasis">Trending!</h3>
+              <p>Keep updated on the latest trends in crypto. Make your decisions based in updated information on individual currencies in real time.,</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="card-group">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAgGIRJlloI2mA-O6ljftRfc5AQGDd1i6DQHQ7B4qCKw&s" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Bitcoin</h5>
+            <p class="card-text">
+              Price: R {{ parameters.btc_price }} <br>
+              Market Cap: R{{ parameters.btc_cap }} <br>
+              24 Hour Movement: {{ parameters.btc_24h }}%</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Last updated 3 mins </small>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOOpBadtUj3VYO0-SuI4FlhJFPdBQQn3tsEpcdetG_uQ&s" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Ethereum</h5>
+            <p class="card-text">
+              Price: R{{ parameters.eth_price }}<br>
+              Market Cap: R{{ parameters.eth_cap }}<br>
+              24 Hour Movement: {{ parameters.eth_24h }}%</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Last updated 3 mins</small>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://imageio.forbes.com/specials-images/imageserve/6544fb1b27e3b92006e0f113/Solana-SOL-cryptocurrency-physical-coin--abstract-background-/0x0.jpg?format=jpg&width=960" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Solana</h5>
+            <p class="card-text">
+              Price: R{{ parameters.sol_price }}<br>
+              Market Cap: R{{ parameters.sol_cap }}<br>
+              24 Hour Movement: {{ parameters.sol_24h }}%</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Last updated 3 mins </small>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}
