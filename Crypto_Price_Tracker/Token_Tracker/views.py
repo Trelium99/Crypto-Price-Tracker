@@ -1,13 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 import requests
 from .forms import SearchForm
+from django.http import JsonResponse
 import os
 # Create your views here.
 
 API_END_POINT = "https://api.coingecko.com/api/v3"
 headers = {
     "accept": "application/json",
-    "x-cg-demo-api-key":  os.environ.get('API_KEY') 
+    "x-cg-demo-api-key": "CG-FMrnmbuUU7FZ2K73t2jYdaVk"
 }
 
 def get_data():
@@ -71,3 +72,12 @@ def index(request):
     })
 
 
+def info(request, slug):
+    user_search = custom_search(slug)
+    search_params = {
+        "searched_coin": slug.capitalize(),
+        "search_price": user_search[slug.lower()]['zar'],
+        "search_cap": round(user_search[slug.lower()]['zar_market_cap'],2),
+        "search_24h": round(user_search[slug.lower()]['zar_24h_change'],2),
+    }
+    return JsonResponse(search_params)
