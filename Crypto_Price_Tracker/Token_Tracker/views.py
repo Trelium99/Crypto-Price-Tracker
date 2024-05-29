@@ -8,7 +8,7 @@ import os
 API_END_POINT = "https://api.coingecko.com/api/v3"
 headers = {
     "accept": "application/json",
-    "x-cg-demo-api-key": "CG-FMrnmbuUU7FZ2K73t2jYdaVk"
+    "x-cg-demo-api-key": ""
 }
 
 def get_data():
